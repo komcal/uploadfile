@@ -47,7 +47,7 @@ app.post('/', [testMiddle, multerMiddle], function(req,res) {
 	else {
 		res.send('success');
 	}
-
+});
 
 var port = 3000;
 app.listen( port, function() {

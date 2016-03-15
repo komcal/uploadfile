@@ -8,7 +8,7 @@ var storage = multer.diskStorage({
 		cb(null, './uploads')
 	},
 	filename: function (req, file, cb) {
-		cb(null, req._filename);
+		cb(null, req._filename + '.jpg');
 	}
 });
 
@@ -39,9 +39,15 @@ app.get('/', function(req, res){
 app.post('/', [testMiddle, multerMiddle], function(req,res) {
 	console.log(req.body); //form fields
 	console.log(req.file); //form files
-	res.status(204).end();
+	//res.status(204).end();
+	var title = req.body.title;
+	if (title.length > 5) {
+		res.send('ERROR : title length more than 5');
+	}
+	else {
+		res.send('success');
+	}
 });
-
 
 var port = 3000;
 app.listen( port, function() {

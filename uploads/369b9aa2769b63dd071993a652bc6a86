@@ -1,0 +1,7 @@
+import math
+v1 = float(raw_input());
+vr = float(raw_input());
+w = float(raw_input());
+r = 5000;
+r1 = 502
+print math.sqrt((((v1*r)**2)-(vr**2)*(r1**2)) / ((w*vr)**2));
